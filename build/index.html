@@ -44,7 +44,8 @@
             let url = `${server}/api/${path}`
             if (channel) url += '?channel=' + channel
             return await fetch(url, {headers})
-                .then(res => res.text())
+                .then(res => res.json())
+                .then(array => array.join('<br/>'))
         }
 
         async function titles() {
